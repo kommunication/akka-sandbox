@@ -2,9 +2,14 @@ package com.komlan.lab.akka
 package sandbox
 
 object Main extends App {
-  println("─" * 100)
+  println("─" * 50)
 
-  println("hello world")
+  // // 1- Hello World
+  // HelloAkka.run()
 
-  println("─" * 100)
+  // 2- Actor path, actor ref, actor selection
+  // ActorPath.run()
+  Watcher.run()
+  
+  println("─" * 50)
 }

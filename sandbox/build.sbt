@@ -33,9 +33,13 @@ lazy val commonScalacOptions = Seq(
     (Compile / console / scalacOptions).value,
 )
 
+val akkaVersion = "2.6.17"
+
+
 lazy val dependencies = Seq(
   libraryDependencies ++= Seq(
     // main dependencies
+    "com.typesafe.akka" %% "akka-actor" % akkaVersion,
   ),
   libraryDependencies ++= Seq(
     com.github.alexarchambault.`scalacheck-shapeless_1.15`,
@@ -43,5 +47,6 @@ lazy val dependencies = Seq(
     org.scalatest.scalatest,
     org.scalatestplus.`scalacheck-1-15`,
     org.typelevel.`discipline-scalatest`,
+    "com.typesafe.akka" %% "akka-testkit" % akkaVersion,
   ).map(_ % Test),
 )
