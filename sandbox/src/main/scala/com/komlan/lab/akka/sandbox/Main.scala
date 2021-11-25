@@ -12,10 +12,15 @@ object Main extends App {
   //Watcher.run()
 
   // 3- Router
-//  // 3.1-
+
+  //  // 3.1-
 //  RouterPool.run
-  // 3.2 Router group
-  RouterGroup.run()
+
+//  // 3.2 Router group
+//  RouterGroup.run()
+
+  // 3.3
+  RandomRouter.run()
 
   println("─" * 50)
 }

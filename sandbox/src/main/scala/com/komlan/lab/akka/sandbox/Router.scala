@@ -4,7 +4,7 @@ package sandbox
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 import com.komlan.lab.akka.sandbox.Worker.Work
 
-class RouterPool extends Actor {
+class Router extends Actor {
 
   var routees: List[ActorRef] = _
 
@@ -21,11 +21,11 @@ class RouterPool extends Actor {
 
 }
 
-object RouterPool {
+object Router {
 
   def run: Unit = {
     val system = ActorSystem("router")
-    val router = system.actorOf(Props[RouterPool])
+    val router = system.actorOf(Props[Router])
 
     router ! Work()
     router ! Work()
@@ -41,7 +41,7 @@ object RouterPool {
 class RouterGroup(routees: List[String]) extends Actor {
   override def receive: Receive = {
     case msg: Work =>
-      println(s"I'm Router Group and I received Work message")
+      println(s"I'm Router Group and I'm forwarding a Work message.")
       context.actorSelection(routees(util.Random.nextInt(routees.size))) forward msg
   }
 }
